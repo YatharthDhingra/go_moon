@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './pages/home_page.dart'; //to use the HomePage class 
+import 'dart:ui';
 
 void main() {
   runApp(const App()); //this function takes widget as argument and inflates(attaches) it to the screen
@@ -18,9 +20,10 @@ class App extends StatelessWidget {
     return MaterialApp(  
       title: "GoMoon",  //name of the app
       //home is the initial state of our widget
-      home: Scaffold( //Scaffold is used under MaterialApp , it gives you many basic functionalities, like AppBar , BottomNavigationBar , Drawer , FloatingActionButton etc
-        // backgroundColor: Color.fromRGBO(31, 31, 31, 1.0), --> background color of this particular SCAFFOLD
-      ),  
+      // home: Scaffold( //Scaffold is used under MaterialApp , it gives you many basic functionalities, like AppBar , BottomNavigationBar , Drawer , FloatingActionButton etc
+      //   // backgroundColor: Color.fromRGBO(31, 31, 31, 1.0), --> background color of this particular SCAFFOLD
+      // ),  
+      home: HomePage(), //we have imported this HomePage class
       theme: ThemeData(scaffoldBackgroundColor: Color.fromRGBO(31, 31, 31, 1.0) ), //to set the theme of all the scaffolds(pages) of the app
     );
   }
