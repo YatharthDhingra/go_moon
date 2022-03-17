@@ -33,7 +33,20 @@ class HomePage extends StatelessWidget {
               horizontal: _deviceWidth *
                   0.05), //providing padding from edges (symmetrically)
           //This padding is applied to the child of the container , not the container itself
-          child: _pageTitle(),
+          child: Column(
+            //an array aligned vertically(main axis is y axis ,cross axis is x axis)
+            children: [
+              //list of items
+              _pageTitle(),
+              _destinationDropDownWidget(),
+            ],
+            mainAxisAlignment: MainAxisAlignment
+                .spaceBetween, //alignment on the main axis(y axis-vertically)
+            mainAxisSize: MainAxisSize
+                .max, //size between the widgets(array elements on the main axis)
+            crossAxisAlignment: CrossAxisAlignment
+                .start, //x axis is the cross axis of a column(start -> left-horizontally)
+          ),
         ),
       ),
     );
@@ -55,11 +68,45 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _pageTitle() {
-      return const Text(
-        "#GoMoon",
-        textAlign: TextAlign.center,  //to align the text in center horizontally
-        style: TextStyle(color: Colors.white, fontSize: 70, fontWeight: FontWeight.bold), //returning a textWidget
+    return const Text(
+      "#GoMoon",
+      textAlign: TextAlign.center, //to align the text in center horizontally
+      style: TextStyle(
+          color: Colors.white,
+          fontSize: 70,
+          fontWeight: FontWeight.bold), //returning a textWidget
       //style : TextStyle(attributes of the text),
+    );
+  }
+
+  Widget _destinationDropDownWidget() {
+    //List of drop down menu items , each item will be of type 'string'
+    List<String> _items = ["ISS", "James Webb Station"];
+    return Container(
+      //for background of our drop down initially , we also add background color to our container
+      decoration: BoxDecoration(
+        color: const Color.fromRGBO(53, 53, 53, 1.0),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      width: _deviceWidth,
+      padding: EdgeInsets.symmetric(horizontal: _deviceWidth*0.05), //gives spacing to text inside(content inside)
+
+      child: DropdownButton(
+        onChanged: (_) {}, //this is a function that specify what happens when we click on the dropDownButton(we ignore it by giving it '_' as parameter)
+        items: _items.map((e) {
+          return DropdownMenuItem(
+            child: Text(e),
+            value: e,
+          );
+        }).toList(), //this map function iterates over each element and converts it into a DropdownMenuItem
+        //using toList() function , we convert it to list again , //we pass the created list here
+        //use .map function here otherwise will give an error while giving the default value to the drop down menu
+
+        underline: Container(), //make underline an empty container -> no underline
+        value: _items.first, //default value is the first value of the list
+        dropdownColor: const Color.fromRGBO(53, 53, 53, 1.0),  //background color of dropdown WHEN IT OPENS UP
+        style: const TextStyle(color: Colors.white),  //color of its text
+      ),
     );
   }
 }
