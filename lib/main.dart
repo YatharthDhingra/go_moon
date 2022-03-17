@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './pages/home_page.dart'; //to use the HomePage class 
-import 'dart:ui';
 
 void main() {
   runApp(const App()); //this function takes widget as argument and inflates(attaches) it to the screen
@@ -8,7 +7,7 @@ void main() {
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
-  // {} -> named optional argument : it is optional to pass this argument(we can create object without passing arguments in the constructior)
+  // {} -> named optional argument : it is optional to pass this argument(we can create object without passing arguments in the constructor)
   //keys are a way to maintain state of a widget in flutter
   //declare const constructor on immutable classes(stateless class is immutable)
 
