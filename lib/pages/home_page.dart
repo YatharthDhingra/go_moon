@@ -9,7 +9,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Buidcontext gives us the information of the widget like its location in the widget tree
-
+    /*Generally speaking, there are 2 use cases for context : 
+        -> Interact with your parents (get/post data mostly)
+        -> Once rendered on screen, get your screen size and position */
     _deviceHeight = MediaQuery.of(context)
         .size
         .height; //this gives us the height of the device(in pixels)
@@ -49,7 +51,7 @@ class HomePage extends StatelessWidget {
                   mainAxisSize: MainAxisSize
                       .max, //size between the widgets(array elements on the main axis)
                   crossAxisAlignment: CrossAxisAlignment
-                      .start, //x axis is the cross axis of a column(start -> left-horizontally)
+                      .center, //x axis is the cross axis of a column(start -> left-horizontally)
                 ),
                 Align(   //top of the layer
                 //align widget is used to align something(default alignment is centre)
@@ -93,7 +95,7 @@ class HomePage extends StatelessWidget {
 
   Widget _bookRideWidget() {
     return Container(
-      height: 0.25 * _deviceHeight,
+      height: 0.30 * _deviceHeight,
       child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
