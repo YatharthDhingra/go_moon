@@ -23,7 +23,7 @@ class App extends StatelessWidget {
       //   // backgroundColor: Color.fromRGBO(31, 31, 31, 1.0), --> background color of this particular SCAFFOLD
       // ),  
       home: HomePage(), //we have imported this HomePage class
-      theme: ThemeData(scaffoldBackgroundColor: Color.fromRGBO(31, 31, 31, 1.0) ), //to set the theme of all the scaffolds(pages) of the app
+      theme: ThemeData(scaffoldBackgroundColor: const Color.fromRGBO(31, 31, 31, 1.0) ), //to set the theme of all the scaffolds(pages) of the app
     );
   }
 }

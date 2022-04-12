@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 horizontal: _deviceWidth *
                     0.05), //providing padding from edges (symmetrically)
-            //This padding is applied to the child of the container , not the container itself
+            //This padding is applied to the child of the container , not the container itself as padding is of the content
 
             child: Stack(
               //stack of layers(first appearing -> bottom of the stack , last -> top)
